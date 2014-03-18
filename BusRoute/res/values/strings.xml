@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Bus Route</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="welcome_text">Welcome to Bus Route</string>
+    <string name="route_button">Start Route</string>
+    <string name="settings_button">Settings</string>
+    <string name="logout_button">Log Out</string>
+
+    <color name="yellow">#FCE27E</color>
+
+    <string name="title_activity_route">RouteActivity</string>
+    <string name="GoogleMapsTest">Google Maps will be here</string>
+
+</resources>
