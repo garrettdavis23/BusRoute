@@ -43,10 +43,6 @@ public class MainActivity extends Activity implements OnClickListener {
 	    Log.d("Debug", "onDestroy() has been called!");
 	}
 	
-	
-
-	
-	
 	public void onClick (View view) {
 		  
 		  if (view.getId() == R.id.routebutton) 
@@ -56,7 +52,8 @@ public class MainActivity extends Activity implements OnClickListener {
 		  }
 		  else if (view.getId() == R.id.settingsbutton) 
 		  {
-			  Toast.makeText(this, "Yep, you pressed settings", Toast.LENGTH_LONG).show();
+			  Intent myIntent = new Intent(view.getContext(), SettingsActivity.class);
+			  startActivityForResult(myIntent, 0);		  
 		  }
 		  else if (view.getId() == R.id.logoutbutton) 
 		  {

@@ -7,26 +7,25 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".RouteActivity" >
+    tools:context=".SettingsActivity" >
 
-    <DigitalClock
-        android:id="@+id/digitalClock1"
+    <Switch
+        android:id="@+id/switch2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/switch1"
+        android:layout_below="@+id/switch1"
+        android:layout_marginTop="22dp"
+        android:text="@string/sounds_switch" />
+
+    <Switch
+        android:id="@+id/switch1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="34dp"
-        android:text="DigitalClock" />
-
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/digitalClock1"
-        android:layout_marginRight="23dp"
-        android:layout_marginTop="137dp"
-        android:text="@string/GoogleMapsTest"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:layout_marginTop="99dp"
+        android:checked="false"
+        android:text="@string/theme_switch" />
 
 </RelativeLayout>

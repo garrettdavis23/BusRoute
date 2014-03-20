@@ -215,8 +215,8 @@ containing a value of this type.
         public static final int ic_plusone_tall_off_client=0x7f02001c;
     }
     public static final class id {
-        public static final int action_settings=0x7f06000b;
-        public static final int analogClock1=0x7f060009;
+        public static final int action_settings=0x7f06000d;
+        public static final int digitalClock1=0x7f060009;
         public static final int hybrid=0x7f060004;
         public static final int logoutbutton=0x7f060008;
         public static final int none=0x7f060000;
@@ -224,6 +224,8 @@ containing a value of this type.
         public static final int routebutton=0x7f060005;
         public static final int satellite=0x7f060002;
         public static final int settingsbutton=0x7f060007;
+        public static final int switch1=0x7f06000c;
+        public static final int switch2=0x7f06000b;
         public static final int terrain=0x7f060003;
         public static final int textView1=0x7f06000a;
         public static final int textView2=0x7f060006;
@@ -234,10 +236,12 @@ containing a value of this type.
     public static final class layout {
         public static final int activity_main=0x7f030000;
         public static final int activity_route=0x7f030001;
+        public static final int activity_settings=0x7f030002;
     }
     public static final class menu {
         public static final int main=0x7f0c0000;
         public static final int route=0x7f0c0001;
+        public static final int settings=0x7f0c0002;
     }
     public static final class string {
         public static final int GoogleMapsTest=0x7f070022;
@@ -339,29 +343,31 @@ containing a value of this type.
         public static final int common_signin_button_text_long=0x7f070013;
         public static final int hello_world=0x7f07001c;
         public static final int logout_button=0x7f070020;
-        public static final int pref_default_display_name=0x7f070028;
-        public static final int pref_description_social_recommendations=0x7f070026;
+        public static final int pref_default_display_name=0x7f07002a;
+        public static final int pref_description_social_recommendations=0x7f070028;
         /**  Example settings for Data & Sync 
          */
-        public static final int pref_header_data_sync=0x7f07002a;
+        public static final int pref_header_data_sync=0x7f07002c;
         /**  Strings related to Settings 
  Example General settings 
          */
-        public static final int pref_header_general=0x7f070024;
+        public static final int pref_header_general=0x7f070026;
         /**  Example settings for Notifications 
          */
-        public static final int pref_header_notifications=0x7f07002d;
-        public static final int pref_ringtone_silent=0x7f070030;
-        public static final int pref_title_add_friends_to_messages=0x7f070029;
-        public static final int pref_title_display_name=0x7f070027;
-        public static final int pref_title_new_message_notifications=0x7f07002e;
-        public static final int pref_title_ringtone=0x7f07002f;
-        public static final int pref_title_social_recommendations=0x7f070025;
-        public static final int pref_title_sync_frequency=0x7f07002b;
-        public static final int pref_title_system_sync_settings=0x7f07002c;
-        public static final int pref_title_vibrate=0x7f070031;
+        public static final int pref_header_notifications=0x7f07002f;
+        public static final int pref_ringtone_silent=0x7f070032;
+        public static final int pref_title_add_friends_to_messages=0x7f07002b;
+        public static final int pref_title_display_name=0x7f070029;
+        public static final int pref_title_new_message_notifications=0x7f070030;
+        public static final int pref_title_ringtone=0x7f070031;
+        public static final int pref_title_social_recommendations=0x7f070027;
+        public static final int pref_title_sync_frequency=0x7f07002d;
+        public static final int pref_title_system_sync_settings=0x7f07002e;
+        public static final int pref_title_vibrate=0x7f070033;
         public static final int route_button=0x7f07001e;
         public static final int settings_button=0x7f07001f;
+        public static final int sounds_switch=0x7f070025;
+        public static final int theme_switch=0x7f070024;
         public static final int title_activity_route=0x7f070021;
         public static final int title_activity_settings=0x7f070023;
         public static final int welcome_text=0x7f07001d;
