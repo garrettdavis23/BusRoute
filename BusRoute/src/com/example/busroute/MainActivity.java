@@ -19,8 +19,16 @@ public class MainActivity extends Activity implements OnClickListener {
 		Log.d("Debug", "onCreate has been called!");
 		
 		View v = findViewById(R.id.routebutton);
-		//set event listener
-	        v.setOnClickListener(this);
+	    v.setOnClickListener(this);
+	    
+	    View v1 = findViewById(R.id.planroutebutton);
+	    v1.setOnClickListener(this);
+	    
+	    View v2 = findViewById(R.id.helpbutton);
+	    v2.setOnClickListener(this);
+	    
+	    View v3 = findViewById(R.id.settingsbutton);
+	    v3.setOnClickListener(this);
 	}
 
 	@Override
@@ -50,14 +58,19 @@ public class MainActivity extends Activity implements OnClickListener {
 			  Intent myIntent = new Intent(view.getContext(), RouteActivity.class);
 			  startActivityForResult(myIntent, 0);
 		  }
+		  else if (view.getId() == R.id.helpbutton) 
+		  {
+			  Intent myIntent = new Intent(view.getContext(), HelpActivity.class);
+			  startActivityForResult(myIntent, 1);
+		  }
 		  else if (view.getId() == R.id.settingsbutton) 
 		  {
 			  Intent myIntent = new Intent(view.getContext(), SettingsActivity.class);
-			  startActivityForResult(myIntent, 0);		  
+			  startActivityForResult(myIntent, 2);		  
 		  }
-		  else if (view.getId() == R.id.logoutbutton) 
+		  else if (view.getId() == R.id.planroutebutton) 
 		  {
-			  Toast.makeText(this, "Yep, you pressed log out", Toast.LENGTH_LONG).show();
+			  Toast.makeText(this, "Yep, you pressed Plan Route", Toast.LENGTH_LONG).show();
 		  }
 		  
 		} 

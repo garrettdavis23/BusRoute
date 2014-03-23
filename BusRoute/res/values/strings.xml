@@ -7,7 +7,7 @@
     <string name="welcome_text">Welcome to Bus Route</string>
     <string name="route_button">Start Route</string>
     <string name="settings_button">Settings</string>
-    <string name="logout_button">Log Out</string>
+    <string name="plan_route_button">Plan Route</string>
 
     <color name="yellow">#FCE27E</color>
 
@@ -16,5 +16,9 @@
     <string name="title_activity_settings">SettingsActivity</string>
     <string name="theme_switch">Dark Theme</string>
     <string name="sounds_switch">Sound Effects</string>
+    <string name="help_button">Instructions</string>
+    <string name="title_activity_help">HelpActivity</string>
+    <string name="routeTextInstructions">This will instruct the user on how to use the route view.</string>
+    <color name="DarkGray">#3c372f</color>
 
 </resources>

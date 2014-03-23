@@ -10,42 +10,50 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" >
 
-    <Button
-        android:id="@+id/routebutton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView2"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="28dp"
-        android:onClick="onClick"
-        android:text="@string/route_button" />
-
-    <Button
-        android:id="@+id/settingsbutton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/routebutton"
-        android:layout_centerHorizontal="true"
-        android:onClick="onClick"
-        android:text="@string/settings_button" />
-
-    <Button
-        android:id="@+id/logoutbutton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/settingsbutton"
-        android:layout_centerHorizontal="true"
-        android:onClick="onClick"
-        android:text="@string/logout_button" />
-
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="61dp"
+        android:layout_marginTop="56dp"
         android:text="@string/welcome_text"
         android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <Button
+        android:id="@+id/planroutebutton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/routebutton"
+        android:layout_below="@+id/routebutton"
+        android:onClick="onClick"
+        android:text="@string/plan_route_button" />
+
+    <Button
+        android:id="@+id/settingsbutton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/helpbutton"
+        android:layout_below="@+id/helpbutton"
+        android:onClick="onClick"
+        android:text="@string/settings_button" />
+
+    <Button
+        android:id="@+id/helpbutton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/planroutebutton"
+        android:layout_centerHorizontal="true"
+        android:text="@string/help_button" />
+
+    <Button
+        android:id="@+id/routebutton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/helpbutton"
+        android:layout_below="@+id/textView2"
+        android:layout_marginTop="35dp"
+        android:onClick="onClick"
+        android:text="@string/route_button" />
 
 </RelativeLayout>
