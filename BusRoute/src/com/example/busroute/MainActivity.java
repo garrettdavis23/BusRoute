@@ -38,19 +38,6 @@ public class MainActivity extends Activity implements OnClickListener {
 		return true;
 	}
 	
-	@Override
-	protected void onResume() {
-	    super.onResume();
-	    // Log the action
-	    Log.d("Debug", "onResume() has been called!");
-	}
-	@Override
-	public void onDestroy() {
-	    
-	    // Log the action
-	    Log.d("Debug", "onDestroy() has been called!");
-	}
-	
 	public void onClick (View view) {
 		  
 		  if (view.getId() == R.id.routebutton) 
@@ -70,7 +57,8 @@ public class MainActivity extends Activity implements OnClickListener {
 		  }
 		  else if (view.getId() == R.id.planroutebutton) 
 		  {
-			  Toast.makeText(this, "Yep, you pressed Plan Route", Toast.LENGTH_LONG).show();
+			  Intent myIntent = new Intent(view.getContext(), RoutePlannerActivity.class);
+			  startActivityForResult(myIntent, 3);		
 		  }
 		  
 		} 

@@ -239,13 +239,15 @@ containing a value of this type.
         public static final int activity_help=0x7f030000;
         public static final int activity_main=0x7f030001;
         public static final int activity_route=0x7f030002;
-        public static final int activity_settings=0x7f030003;
+        public static final int activity_route_planner=0x7f030003;
+        public static final int activity_settings=0x7f030004;
     }
     public static final class menu {
         public static final int help=0x7f0c0000;
         public static final int main=0x7f0c0001;
         public static final int route=0x7f0c0002;
-        public static final int settings=0x7f0c0003;
+        public static final int route_planner=0x7f0c0003;
+        public static final int settings=0x7f0c0004;
     }
     public static final class string {
         public static final int GoogleMapsTest=0x7f070022;
@@ -348,27 +350,27 @@ containing a value of this type.
         public static final int hello_world=0x7f07001c;
         public static final int help_button=0x7f070026;
         public static final int plan_route_button=0x7f070020;
-        public static final int pref_default_display_name=0x7f07002d;
-        public static final int pref_description_social_recommendations=0x7f07002b;
+        public static final int pref_default_display_name=0x7f07002e;
+        public static final int pref_description_social_recommendations=0x7f07002c;
         /**  Example settings for Data & Sync 
          */
-        public static final int pref_header_data_sync=0x7f07002f;
+        public static final int pref_header_data_sync=0x7f070030;
         /**  Strings related to Settings 
  Example General settings 
          */
-        public static final int pref_header_general=0x7f070029;
+        public static final int pref_header_general=0x7f07002a;
         /**  Example settings for Notifications 
          */
-        public static final int pref_header_notifications=0x7f070032;
-        public static final int pref_ringtone_silent=0x7f070035;
-        public static final int pref_title_add_friends_to_messages=0x7f07002e;
-        public static final int pref_title_display_name=0x7f07002c;
-        public static final int pref_title_new_message_notifications=0x7f070033;
-        public static final int pref_title_ringtone=0x7f070034;
-        public static final int pref_title_social_recommendations=0x7f07002a;
-        public static final int pref_title_sync_frequency=0x7f070030;
-        public static final int pref_title_system_sync_settings=0x7f070031;
-        public static final int pref_title_vibrate=0x7f070036;
+        public static final int pref_header_notifications=0x7f070033;
+        public static final int pref_ringtone_silent=0x7f070036;
+        public static final int pref_title_add_friends_to_messages=0x7f07002f;
+        public static final int pref_title_display_name=0x7f07002d;
+        public static final int pref_title_new_message_notifications=0x7f070034;
+        public static final int pref_title_ringtone=0x7f070035;
+        public static final int pref_title_social_recommendations=0x7f07002b;
+        public static final int pref_title_sync_frequency=0x7f070031;
+        public static final int pref_title_system_sync_settings=0x7f070032;
+        public static final int pref_title_vibrate=0x7f070037;
         public static final int routeTextInstructions=0x7f070028;
         public static final int route_button=0x7f07001e;
         public static final int settings_button=0x7f07001f;
@@ -376,6 +378,7 @@ containing a value of this type.
         public static final int theme_switch=0x7f070024;
         public static final int title_activity_help=0x7f070027;
         public static final int title_activity_route=0x7f070021;
+        public static final int title_activity_route_planner=0x7f070029;
         public static final int title_activity_settings=0x7f070023;
         public static final int welcome_text=0x7f07001d;
     }

@@ -42,6 +42,13 @@ public class SettingsActivity extends Activity implements OnCheckedChangeListene
 	                   Toast.LENGTH_SHORT).show();
 	    if(isChecked) {
 	        //do stuff when Switch is ON
+	    	View someView = findViewById(R.layout.activity_settings);
+
+	    	  // Find the root view
+	    	  View root = someView.getRootView();
+
+	    	  // Set the color
+	    	  root.setBackgroundColor(Color.RED);
 	    } 
 	    else {
 	        //do stuff when Switch if OFF

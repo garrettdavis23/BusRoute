@@ -38,6 +38,10 @@
             android:name="com.example.busroute.HelpActivity"
             android:label="@string/title_activity_help" >
         </activity>
+        <activity
+            android:name="com.example.busroute.RoutePlannerActivity"
+            android:label="@string/title_activity_route_planner" >
+        </activity>
     </application>
 
 </manifest>
