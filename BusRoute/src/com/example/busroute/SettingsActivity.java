@@ -3,6 +3,7 @@ package com.example.busroute;
 import android.os.Bundle;
 import android.app.Activity;
 import android.graphics.Color;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.CompoundButton;
@@ -12,6 +13,8 @@ import android.widget.Switch;
 import android.widget.Toast;
 
 public class SettingsActivity extends Activity implements OnCheckedChangeListener {
+	
+	private Boolean darkTheme;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +30,7 @@ public class SettingsActivity extends Activity implements OnCheckedChangeListene
 		 if (soundEffectsSwitch != null) {
 	            soundEffectsSwitch.setOnCheckedChangeListener((android.widget.CompoundButton.OnCheckedChangeListener) this);    // note this
 	     }
+		
 	}
 
 	@Override
@@ -42,16 +46,14 @@ public class SettingsActivity extends Activity implements OnCheckedChangeListene
 	                   Toast.LENGTH_SHORT).show();
 	    if(isChecked) {
 	        //do stuff when Switch is ON
-	    	View someView = findViewById(R.layout.activity_settings);
-
-	    	  // Find the root view
-	    	  View root = someView.getRootView();
-
-	    	  // Set the color
-	    	  root.setBackgroundColor(Color.RED);
-	    } 
+	    	darkTheme = true;
+	    	Log.d("Debug", "!!!!!!!!!!!!!!!!");
+	    	
+	    	} 
 	    else {
 	        //do stuff when Switch if OFF
+	    	getWindow().getDecorView().setBackgroundColor(Color.RED);
+
 	    }
 	}
 
