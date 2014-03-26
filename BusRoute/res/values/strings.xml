@@ -23,5 +23,6 @@
     <color name="DarkGray">#3c372f</color>
 
     <string name="title_activity_route_planner">RoutePlannerActivity</string>
+    <string name="infinitelogo">Infinite Loop Logo</string>
 
 </resources>

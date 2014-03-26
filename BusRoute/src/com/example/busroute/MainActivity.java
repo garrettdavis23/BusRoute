@@ -48,17 +48,17 @@ public class MainActivity extends Activity implements OnClickListener {
 		  else if (view.getId() == R.id.helpbutton) 
 		  {
 			  Intent myIntent = new Intent(view.getContext(), HelpActivity.class);
-			  startActivityForResult(myIntent, 1);
+			  startActivityForResult(myIntent, 0);
 		  }
 		  else if (view.getId() == R.id.settingsbutton) 
 		  {
 			  Intent myIntent = new Intent(view.getContext(), SettingsActivity.class);
-			  startActivityForResult(myIntent, 2);		  
+			  startActivityForResult(myIntent, 0);		  
 		  }
 		  else if (view.getId() == R.id.planroutebutton) 
 		  {
 			  Intent myIntent = new Intent(view.getContext(), RoutePlannerActivity.class);
-			  startActivityForResult(myIntent, 3);		
+			  startActivityForResult(myIntent, 0);		
 		  }
 		  
 		} 

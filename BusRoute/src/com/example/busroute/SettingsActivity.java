@@ -1,5 +1,6 @@
 package com.example.busroute;
 
+import android.R.style;
 import android.os.Bundle;
 import android.app.Activity;
 import android.graphics.Color;
@@ -13,9 +14,7 @@ import android.widget.Switch;
 import android.widget.Toast;
 
 public class SettingsActivity extends Activity implements OnCheckedChangeListener {
-	
-	private Boolean darkTheme;
-	
+		
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -44,13 +43,15 @@ public class SettingsActivity extends Activity implements OnCheckedChangeListene
 	public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 	    Toast.makeText(this, "The switch is " + (isChecked ? "on" : "off"),
 	                   Toast.LENGTH_SHORT).show();
-	    if(isChecked) {
+	    if (isChecked) 
+	    {
 	        //do stuff when Switch is ON
-	    	darkTheme = true;
 	    	Log.d("Debug", "!!!!!!!!!!!!!!!!");
+	    	//getWindow().getDecorView().setBackgroundColor(Color.RED);
 	    	
-	    	} 
-	    else {
+	    } 
+	    else 
+	    {
 	        //do stuff when Switch if OFF
 	    	getWindow().getDecorView().setBackgroundColor(Color.RED);
 
