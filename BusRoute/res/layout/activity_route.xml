@@ -19,15 +19,11 @@
         android:textSize="40sp"
         android:text="DigitalClock" />
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/digitalClock1"
-        android:layout_centerHorizontal="true"
-        android:layout_marginRight="23dp"
-        android:layout_marginTop="137dp"
-        android:text="@string/GoogleMapsTest"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+     <com.esri.android.map.MapView
+android:id="@+id/map"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+initExtent = "-1.3296373526814876E7 3930962.41823043 -1.2807176545789773E7 4201243.7502468005">
+</com.esri.android.map.MapView>
 
 </RelativeLayout>
