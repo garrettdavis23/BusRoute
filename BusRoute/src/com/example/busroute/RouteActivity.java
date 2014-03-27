@@ -2,7 +2,6 @@ package com.example.busroute;
 
 import com.esri.android.map.MapView;
 import com.esri.android.map.ags.ArcGISTiledMapServiceLayer;
-
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;

@@ -16,14 +16,18 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
         android:textSize="40sp"
         android:text="DigitalClock" />
 
      <com.esri.android.map.MapView
-android:id="@+id/map"
-android:layout_width="fill_parent"
-android:layout_height="fill_parent"
-initExtent = "-1.3296373526814876E7 3930962.41823043 -1.2807176545789773E7 4201243.7502468005">
-</com.esri.android.map.MapView>
+         android:id="@+id/map"
+         android:layout_width="fill_parent"
+         android:layout_height="fill_parent"
+         android:layout_below="@+id/digitalClock1"
+         android:layout_centerHorizontal="true"
+         initExtent="-1.3296373526814876E7 3930962.41823043 -1.2807176545789773E7 4201243.7502468005" >
+
+	</com.esri.android.map.MapView>
 
 </RelativeLayout>
