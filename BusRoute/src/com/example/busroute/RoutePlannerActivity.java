@@ -44,24 +44,16 @@ public class RoutePlannerActivity extends Activity {
 	MapView map = null;
 	ArcGISTiledMapServiceLayer tileLayer;
 	GraphicsLayer routeLayer, hiddenSegmentsLayer;
-	// Symbol used to make route segments "invisible"
 	SimpleLineSymbol segmentHider = new SimpleLineSymbol(Color.WHITE, 5);
-	// Symbol used to highlight route segments
 	SimpleLineSymbol segmentShower = new SimpleLineSymbol(Color.RED, 5);
-	// Label showing the current direction, time, and length
 	TextView directionsLabel;
-	// List of the directions for the current route (used for the ListActivity)
 	ArrayList<String> curDirections = null;
-	// Current route, route summary, and gps location
 	Route curRoute = null;
 	String routeSummary = null;
 	Point mLocation = null;
-	// Global results variable for calculating route on separate thread
 	RouteTask mRouteTask = null;
 	RouteResult mResults = null;
-	// Variable to hold server exception to show to user
 	Exception mException = null;
-	// Handler for processing the results
 	final Handler mHandler = new Handler();
 	final Runnable mUpdateResults = new Runnable() {
 		public void run() {
@@ -69,12 +61,9 @@ public class RoutePlannerActivity extends Activity {
 		}
 	};
 
-	// Progress dialog to show when route is being calculated
 	ProgressDialog dialog;
-	// Spatial references used for projecting points
 	final SpatialReference wm = SpatialReference.create(102100);
 	final SpatialReference egs = SpatialReference.create(4326);
-	// Index of the currently selected route segment (-1 = no selection)
 	int selectedSegmentID = -1;
 
 	/** Called when the activity is first created. */
@@ -86,14 +75,11 @@ public class RoutePlannerActivity extends Activity {
 		ActionBar actionBar = getActionBar();
 		actionBar.hide();
 
-		// Retrieve the map and initial extent from XML layout
 		map = (MapView) findViewById(R.id.map);
-		// Add tiled layer to MapView
 		tileLayer = new ArcGISTiledMapServiceLayer(
 				"http://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer");
 		map.addLayer(tileLayer);
 
-		// Add the route graphic layer (shows the full route)
 		routeLayer = new GraphicsLayer();
 		map.addLayer(routeLayer);
 
@@ -107,42 +93,18 @@ public class RoutePlannerActivity extends Activity {
 			e1.printStackTrace();
 		}
 
-		// Add the hidden segments layer (for highlighting route segments)
 		hiddenSegmentsLayer = new GraphicsLayer();
 		map.addLayer(hiddenSegmentsLayer);
 
-		// Make the segmentHider symbol "invisible"
 		segmentHider.setAlpha(1);
 
-		// Get the location service and start reading location. Don't auto-pan
-		// to center our position
 		LocationService ls = map.getLocationService();
 		ls.setLocationListener(new MyLocationListener());
 		ls.start();
 		ls.setAutoPan(false);
 
-		// Set the directionsLabel with initial instructions.
 		directionsLabel = (TextView) findViewById(R.id.directionsLabel);
 		directionsLabel.setText(getString(R.string.route_label));
-
-		/**
-		 * On single clicking the directions label, start a ListActivity to show
-		 * the list of all directions for this route. Selecting one of those
-		 * items will return to the map and highlight that segment.
-		 * 
-		 */
-		directionsLabel.setOnClickListener(new OnClickListener() {
-
-			public void onClick(View v) {
-				if (curDirections == null)
-					return;
-				Intent i = new Intent(getApplicationContext(),
-						ShowDirections.class);
-				i.putStringArrayListExtra("directions", curDirections);
-				startActivityForResult(i, 1);
-			}
-
-		});
 
 		/**
 		 * On long clicking the directions label, removes the current route and
@@ -163,53 +125,6 @@ public class RoutePlannerActivity extends Activity {
 		});
 
 		/**
-		 * On single tapping the map, query for a route segment and highlight
-		 * the segment and show direction summary in the label if a segment is
-		 * found.
-		 */
-		map.setOnSingleTapListener(new OnSingleTapListener() {
-			private static final long serialVersionUID = 1L;
-
-			public void onSingleTap(float x, float y) {
-				// Get all the graphics within 20 pixels the click
-				int[] indexes = hiddenSegmentsLayer.getGraphicIDs(x, y, 20);
-				// Hide the currently selected segment
-				hiddenSegmentsLayer.updateGraphic(selectedSegmentID,
-						segmentHider);
-
-				if (indexes.length < 1) {
-					// If no segments were found but there is currently a route,
-					// zoom to the extent of the full route
-					if (curRoute != null) {
-						map.setExtent(curRoute.getEnvelope(), 250);
-						directionsLabel.setText(routeSummary);
-					}
-					return;
-				}
-				// Otherwise update our currently selected segment
-				selectedSegmentID = indexes[0];
-				Graphic selected = hiddenSegmentsLayer
-						.getGraphic(selectedSegmentID);
-				// Highlight it on the map
-				hiddenSegmentsLayer.updateGraphic(selectedSegmentID,
-						segmentShower);
-				String direction = ((String) selected.getAttributeValue("text"));
-				double time = ((Double) selected.getAttributeValue("time"))
-						.doubleValue();
-				double length = ((Double) selected.getAttributeValue("length"))
-						.doubleValue();
-				// Update the label with this direction's information
-				String label = String.format(
-						"%s%nTime: %.1f minutes, Length: %.1f miles",
-						direction, time, length);
-				directionsLabel.setText(label);
-				// Zoom to the extent of that segment
-				map.setExtent(selected.getGeometry(), 50);
-			}
-
-		});
-
-		/**
 		 * On long pressing the map view, route from our current location to the
 		 * pressed location.
 		 * 
@@ -220,43 +135,36 @@ public class RoutePlannerActivity extends Activity {
 
 			public boolean onLongPress(final float x, final float y) {
 
-				// Clear the graphics and empty the directions list
 				routeLayer.removeAll();
 				hiddenSegmentsLayer.removeAll();
 				curDirections = new ArrayList<String>();
 				mResults = null;
 
-				// retrieve the user clicked location
 				final Point loc = map.toMapPoint(x, y);
 
-				// Show that the route is calculating
 				dialog = ProgressDialog.show(RoutePlannerActivity.this, "",
 						"Calculating route...", true);
-				// Spawn the request off in a new thread to keep UI responsive
+				
 				Thread t = new Thread() {
 					@Override
 					public void run() {
 						try {
-							// Start building up routing parameters
+							
 							RouteParameters rp = mRouteTask
 									.retrieveDefaultRouteTaskParameters();
 							NAFeaturesAsFeature rfaf = new NAFeaturesAsFeature();
-							// Convert point to EGS (decimal degrees)
+							
 							Point p = (Point) GeometryEngine.project(loc, wm,
 									egs);
-							// Create the stop points (start at our location, go
-							// to pressed location)
+							
 							StopGraphic point1 = new StopGraphic(mLocation);
 							StopGraphic point2 = new StopGraphic(p);
 							rfaf.setFeatures(new Graphic[] { point1, point2 });
 							rfaf.setCompressedRequest(true);
 							rp.setStops(rfaf);
-							// Set the routing service output SR to our map
-							// service's SR
+							
 							rp.setOutSpatialReference(wm);
 
-							// Solve the route and use the results to update UI
-							// when received
 							mResults = mRouteTask.solve(rp);
 							mHandler.post(mUpdateResults);
 						} catch (Exception e) {
@@ -265,7 +173,6 @@ public class RoutePlannerActivity extends Activity {
 						}
 					}
 				};
-				// Start the operation
 				t.start();
 				return true;
 			}
@@ -283,15 +190,12 @@ public class RoutePlannerActivity extends Activity {
 			return;
 		}
 		curRoute = mResults.getRoutes().get(0);
-		// Symbols for the route and the destination (blue line, checker flag)
+		
 		SimpleLineSymbol routeSymbol = new SimpleLineSymbol(Color.BLUE, 3);
 		PictureMarkerSymbol destinationSymbol = new PictureMarkerSymbol(
 				map.getContext(), getResources().getDrawable(
 						R.drawable.common_signin_btn_icon_dark));
 
-		// Add all the route segments with their relevant information to the
-		// hiddenSegmentsLayer, and add the direction information to the list
-		// of directions
 		for (RouteDirection rd : curRoute.getRoutingDirections()) {
 			HashMap<String, Object> attribs = new HashMap<String, Object>();
 			attribs.put("text", rd.getText());
@@ -303,23 +207,22 @@ public class RoutePlannerActivity extends Activity {
 			Graphic routeGraphic = new Graphic(rd.getGeometry(), segmentHider, attribs);
 			hiddenSegmentsLayer.addGraphic(routeGraphic);
 		}
-		// Reset the selected segment
+		
 		selectedSegmentID = -1;
 
-		// Add the full route graphic and destination graphic to the routeLayer
 		Graphic routeGraphic = new Graphic(curRoute.getRouteGraphic()
 				.getGeometry(), routeSymbol);
 		Graphic endGraphic = new Graphic(
 				((Polyline) routeGraphic.getGeometry()).getPoint(((Polyline) routeGraphic
 						.getGeometry()).getPointCount() - 1), destinationSymbol);
 		routeLayer.addGraphics(new Graphic[] { routeGraphic, endGraphic });
-		// Get the full route summary and set it as our current label
+		
 		routeSummary = String.format(
 				"%s%nTotal time: %.1f minutes, length: %.1f miles",
 				curRoute.getRouteName(), curRoute.getTotalMinutes(),
 				curRoute.getTotalMiles());
 		directionsLabel.setText(routeSummary);
-		// Zoom to the extent of the entire route with a padding
+		
 		map.setExtent(curRoute.getEnvelope(), 250);
 	}
 
@@ -331,26 +234,25 @@ public class RoutePlannerActivity extends Activity {
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
-		// Response from directions list view
+		
 		if (requestCode == 1) {
 			if (resultCode == RESULT_OK) {
 				String direction = data.getStringExtra("returnedDirection");
 				if (direction == null)
 					return;
-				// Look for the graphic that corresponds to this direction
+				
 				for (int index : hiddenSegmentsLayer.getGraphicIDs()) {
 					Graphic g = hiddenSegmentsLayer.getGraphic(index);
 					if (direction
 							.contains((String) g.getAttributeValue("text"))) {
-						// When found, hide the currently selected, show the new
-						// selection
+						
 						hiddenSegmentsLayer.updateGraphic(selectedSegmentID,
 								segmentHider);
 						hiddenSegmentsLayer.updateGraphic(index, segmentShower);
 						selectedSegmentID = index;
-						// Update label with information for that direction
+						
 						directionsLabel.setText(direction);
-						// Zoom to the extent of that segment
+						
 						map.setExtent(
 								hiddenSegmentsLayer.getGraphic(
 										selectedSegmentID).getGeometry(), 50);
