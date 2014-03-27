@@ -1,15 +1,13 @@
 package com.example.busroute;
 
-import android.R.style;
 import android.os.Bundle;
+import android.app.ActionBar;
 import android.app.Activity;
 import android.graphics.Color;
 import android.util.Log;
 import android.view.Menu;
-import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
-import android.widget.RelativeLayout;
 import android.widget.Switch;
 import android.widget.Toast;
 
@@ -19,6 +17,8 @@ public class SettingsActivity extends Activity implements OnCheckedChangeListene
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_settings);
+		ActionBar actionBar = getActionBar();
+		actionBar.hide();
 		
 		 Switch darkThemeSwitch = (Switch) findViewById(R.id.switch1);
 		 if (darkThemeSwitch != null) {

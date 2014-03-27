@@ -3,6 +3,7 @@ package com.example.busroute;
 import com.esri.android.map.MapView;
 import com.esri.android.map.ags.ArcGISTiledMapServiceLayer;
 import android.os.Bundle;
+import android.app.ActionBar;
 import android.app.Activity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -16,6 +17,9 @@ public class RouteActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_route);
+		
+		ActionBar actionBar = getActionBar();
+		actionBar.hide();
 
 		// Retrieve the map and initial extent from XML layout
 		mMapView = (MapView)findViewById(R.id.map);

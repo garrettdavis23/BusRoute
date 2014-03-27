@@ -1,5 +1,6 @@
 package com.example.busroute;
 
+import android.app.ActionBar;
 import android.app.ListActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -18,6 +19,8 @@ public class RoutePlannerActivity extends ListActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		ActionBar actionBar = getActionBar();
+		actionBar.hide();
  
 		setListAdapter(new ArrayAdapter<String>(this, R.layout.activity_route_planner,AddressList));
  
