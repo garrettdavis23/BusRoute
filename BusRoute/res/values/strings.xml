@@ -8,6 +8,9 @@
     <string name="route_button">Start Route</string>
     <string name="settings_button">Settings</string>
     <string name="plan_route_button">Plan Route</string>
+    
+    <string name="route_label">Press and hold map to route to that point\nClick segments for more information</string>
+    <string name="routingservice_url">http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/Network/USA/NAServer/Route</string>
 
     <color name="yellow">#FCE27E</color>
 
