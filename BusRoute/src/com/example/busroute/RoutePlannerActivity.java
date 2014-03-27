@@ -3,6 +3,7 @@ package com.example.busroute;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -81,6 +82,9 @@ public class RoutePlannerActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_route_planner);
+		
+		ActionBar actionBar = getActionBar();
+		actionBar.hide();
 
 		// Retrieve the map and initial extent from XML layout
 		map = (MapView) findViewById(R.id.map);
