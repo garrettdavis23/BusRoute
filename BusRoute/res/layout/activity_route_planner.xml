@@ -11,8 +11,10 @@
         android:layout_height="wrap_content"
         android:background="#000000"
         android:textColor="#ffffff"
+        android:textSize="17sp"
      />
  
+    
     <!-- MapView layout and initial extent -->
     <com.esri.android.map.MapView
   		android:id="@+id/map"
