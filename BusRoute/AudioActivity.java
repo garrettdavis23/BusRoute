@@ -127,12 +127,12 @@ public class AudioActivity extends Activity
 
     public AudioActivity() {
         mFileName = Environment.getExternalStorageDirectory().getAbsolutePath();
-        mFileName += "/audioactivity.3gp";
+        mFileName += "/audioactivitytest.3gp";
     }
 
     @Override
-    public void onCreate(Bundle icicle) {
-        super.onCreate(icicle);
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
         LinearLayout ll = new LinearLayout(this);
         mRecordButton = new RecordButton(this);

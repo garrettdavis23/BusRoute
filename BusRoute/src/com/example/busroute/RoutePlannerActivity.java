@@ -19,6 +19,7 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.MediaStore;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnLongClickListener;
@@ -181,6 +182,9 @@ public class RoutePlannerActivity extends Activity {
 					}
 				};
 				t.start();
+				Intent recordIntent = new Intent(MediaStore.Audio.Media.RECORD_SOUND_ACTION);
+                startActivityForResult(recordIntent, 0);
+
 				return true;
 			}
 		});
