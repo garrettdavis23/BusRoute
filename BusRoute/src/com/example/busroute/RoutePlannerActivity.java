@@ -1,3 +1,10 @@
+/* 
+ * Majority of this code was taken from ArcGis API Demo
+ * Plan to use as base for future development
+ * 		- Addresses added to a database as tapped
+ * 		- Audio queues made at entry
+ */
+
 package com.example.busroute;
 
 import java.util.ArrayList;
