@@ -21,7 +21,8 @@
     <string name="sounds_switch">Sound Effects</string>
     <string name="help_button">Instructions</string>
     <string name="title_activity_help">HelpActivity</string>
-    <string name="routeTextInstructions">This will instruct the user on how to use the route view.</string>
+    <string name="routeTextInstructions">1) Tap on "Plan Route"\n\n2) Tap and hold on map to create a stop
+        \n\n3) Tap "Start Route" to and begin driving</string>
 
     <color name="DarkGray">#3c372f</color>
 
