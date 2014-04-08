@@ -13,6 +13,7 @@ import java.util.HashMap;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.location.Location;
@@ -182,7 +183,16 @@ public class RoutePlannerActivity extends Activity {
 					}
 				};
 				t.start();
-				Intent recordIntent = new Intent(MediaStore.Audio.Media.RECORD_SOUND_ACTION);
+				
+				Context context = getApplicationContext();
+				Intent recordIntent = new Intent(context, AudioActivity.class);
+				
+				//******** these need to be set somewhere *********
+				Integer routenumber = 0, stopnumber = 0;
+				
+				recordIntent.putExtra("routenumber", routenumber);
+				recordIntent.putExtra("stopnumber", stopnumber);
+
                 startActivityForResult(recordIntent, 0);
 
 				return true;
@@ -205,7 +215,7 @@ public class RoutePlannerActivity extends Activity {
 		SimpleLineSymbol routeSymbol = new SimpleLineSymbol(Color.BLUE, 3);
 		PictureMarkerSymbol destinationSymbol = new PictureMarkerSymbol(
 				map.getContext(), getResources().getDrawable(
-						R.drawable.common_signin_btn_icon_dark));
+						R.drawable.black_button));
 
 		for (RouteDirection rd : curRoute.getRoutingDirections()) {
 			HashMap<String, Object> attribs = new HashMap<String, Object>();
