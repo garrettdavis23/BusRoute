@@ -32,5 +32,6 @@
     <color name="white">#ffffff</color>
 
     <string name="title_activity_audio">AudioActivity</string>
+    <string name="title_activity_address">AddressActivity</string>
 
 </resources>

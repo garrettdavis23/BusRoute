@@ -62,7 +62,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		  }
 		  else if (view.getId() == R.id.planroutebutton) 
 		  {
-			  Intent myIntent = new Intent(view.getContext(), RoutePlannerActivity.class);
+			  Intent myIntent = new Intent(view.getContext(), AddressActivity.class);
 			  startActivityForResult(myIntent, 0);		
 		  }
 		  
