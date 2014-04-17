@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Bus Route</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="welcome_text">Welcome to Bus Route</string>
+    <string name="route_button">Start Route</string>
+    <string name="settings_button">Settings</string>
+    <string name="plan_route_button">Plan Route</string>
+    <string name="route_label">Press and hold map to route to that point\nClick segments for more information</string>
+    <string name="routingservice_url">http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/Network/USA/NAServer/Route</string>
+
+    <color name="yellow">#FCE27E</color>
+
+    <string name="title_activity_route">RouteActivity</string>
+    <string name="GoogleMapsTest">Google Maps will be here</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+    <string name="theme_switch">Dark Theme</string>
+    <string name="sounds_switch">Sound Effects</string>
+    <string name="help_button">Instructions</string>
+    <string name="title_activity_help">HelpActivity</string>
+    <string name="routeTextInstructions">1) Tap on "Plan Route"\n\n2) Tap and hold on map to create a stop
+        \n\n3) Tap "Start Route" to and begin driving\n\n\n\n\n\n\n\n\n\n\n\n</string>
+
+    <color name="DarkGray">#3c372f</color>
+
+    <string name="title_activity_route_planner">RoutePlannerActivity</string>
+    <string name="infinitelogo">Infinite Loop Logo</string>
+
+    <color name="black">#000000</color>
+    <color name="white">#ffffff</color>
+
+    <string name="title_activity_audio">AudioActivity</string>
+    <string name="title_activity_address">AddressActivity</string>
+
+</resources>

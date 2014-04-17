@@ -29,17 +29,13 @@ public class DBAdapter {
 	 * CHANGE 1:
 	 */
 	// TODO: Setup your fields here:
-	public static final String KEY_NAME = "name";
-	public static final String KEY_STUDENTNUM = "studentnum";
-	public static final String KEY_FAVCOLOUR = "favcolour";
+	public static final String KEY_ADDRESS = "address";
 	
 	// TODO: Setup your field numbers here (0 = KEY_ROWID, 1=...)
-	public static final int COL_NAME = 1;
-	public static final int COL_STUDENTNUM = 2;
-	public static final int COL_FAVCOLOUR = 3;
+	public static final int COL_ADDRESS = 1;
 
 	
-	public static final String[] ALL_KEYS = new String[] {KEY_ROWID, KEY_NAME, KEY_STUDENTNUM, KEY_FAVCOLOUR};
+	public static final String[] ALL_KEYS = new String[] {KEY_ROWID, KEY_ADDRESS};
 	
 	// DB info: it's name, and the table we are using (just one).
 	public static final String DATABASE_NAME = "MyDb";
@@ -61,9 +57,9 @@ public class DBAdapter {
 			//		(http://www.sqlite.org/datatype3.html)
 			//  - "not null" means it is a required field (must be given a value).
 			// NOTE: All must be comma separated (end of line!) Last one must have NO comma!!
-			+ KEY_NAME + " text not null, "
-			+ KEY_STUDENTNUM + " integer not null, "
-			+ KEY_FAVCOLOUR + " string not null"
+			+ KEY_ADDRESS + " string not null "
+			//+ KEY_STUDENTNUM + " integer not null, "
+			//+ KEY_FAVCOLOUR + " string not null"
 			
 			// Rest  of creation:
 			+ ");";
@@ -95,7 +91,7 @@ public class DBAdapter {
 	}
 	
 	// Add a new set of values to the database.
-	public long insertRow(String name, int studentNum, String favColour) {
+	public long insertRow(String address) {
 		/*
 		 * CHANGE 3:
 		 */		
@@ -103,9 +99,9 @@ public class DBAdapter {
 		// TODO: Also change the function's arguments to be what you need!
 		// Create row's data:
 		ContentValues initialValues = new ContentValues();
-		initialValues.put(KEY_NAME, name);
-		initialValues.put(KEY_STUDENTNUM, studentNum);
-		initialValues.put(KEY_FAVCOLOUR, favColour);
+		initialValues.put(KEY_ADDRESS, address);
+		//initialValues.put(KEY_STUDENTNUM, studentNum);
+		//initialValues.put(KEY_FAVCOLOUR, favColour);
 		
 		// Insert it into the database.
 		return db.insert(DATABASE_TABLE, null, initialValues);
@@ -151,7 +147,7 @@ public class DBAdapter {
 	}
 	
 	// Change an existing row to be equal to new data.
-	public boolean updateRow(long rowId, String name, int studentNum, String favColour) {
+	public boolean updateRow(long rowId, String address) {
 		String where = KEY_ROWID + "=" + rowId;
 
 		/*
@@ -161,9 +157,9 @@ public class DBAdapter {
 		// TODO: Also change the function's arguments to be what you need!
 		// Create row's data:
 		ContentValues newValues = new ContentValues();
-		newValues.put(KEY_NAME, name);
-		newValues.put(KEY_STUDENTNUM, studentNum);
-		newValues.put(KEY_FAVCOLOUR, favColour);
+		newValues.put(KEY_ADDRESS, address);
+		//newValues.put(KEY_STUDENTNUM, studentNum);
+		//newValues.put(KEY_FAVCOLOUR, favColour);
 		
 		// Insert it into the database.
 		return db.update(DATABASE_TABLE, newValues, where, null) != 0;
