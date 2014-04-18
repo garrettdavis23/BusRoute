@@ -278,6 +278,7 @@ containing a value of this type.
     public static final class string {
         public static final int GoogleMapsTest=0x7f070024;
         public static final int action_settings=0x7f07001b;
+        public static final int address_save_button=0x7f07002f;
         public static final int app_name=0x7f07001a;
         /**   Title for notification shown when GooglePlayServices needs to be
         enabled for a application to work. [CHAR LIMIT=70] 
@@ -377,27 +378,27 @@ containing a value of this type.
         public static final int help_button=0x7f070028;
         public static final int infinitelogo=0x7f07002c;
         public static final int plan_route_button=0x7f070020;
-        public static final int pref_default_display_name=0x7f070033;
-        public static final int pref_description_social_recommendations=0x7f070031;
+        public static final int pref_default_display_name=0x7f070034;
+        public static final int pref_description_social_recommendations=0x7f070032;
         /**  Example settings for Data & Sync 
          */
-        public static final int pref_header_data_sync=0x7f070035;
+        public static final int pref_header_data_sync=0x7f070036;
         /**  Strings related to Settings 
  Example General settings 
          */
-        public static final int pref_header_general=0x7f07002f;
+        public static final int pref_header_general=0x7f070030;
         /**  Example settings for Notifications 
          */
-        public static final int pref_header_notifications=0x7f070038;
-        public static final int pref_ringtone_silent=0x7f07003b;
-        public static final int pref_title_add_friends_to_messages=0x7f070034;
-        public static final int pref_title_display_name=0x7f070032;
-        public static final int pref_title_new_message_notifications=0x7f070039;
-        public static final int pref_title_ringtone=0x7f07003a;
-        public static final int pref_title_social_recommendations=0x7f070030;
-        public static final int pref_title_sync_frequency=0x7f070036;
-        public static final int pref_title_system_sync_settings=0x7f070037;
-        public static final int pref_title_vibrate=0x7f07003c;
+        public static final int pref_header_notifications=0x7f070039;
+        public static final int pref_ringtone_silent=0x7f07003c;
+        public static final int pref_title_add_friends_to_messages=0x7f070035;
+        public static final int pref_title_display_name=0x7f070033;
+        public static final int pref_title_new_message_notifications=0x7f07003a;
+        public static final int pref_title_ringtone=0x7f07003b;
+        public static final int pref_title_social_recommendations=0x7f070031;
+        public static final int pref_title_sync_frequency=0x7f070037;
+        public static final int pref_title_system_sync_settings=0x7f070038;
+        public static final int pref_title_vibrate=0x7f07003d;
         public static final int routeTextInstructions=0x7f07002a;
         public static final int route_button=0x7f07001e;
         public static final int route_label=0x7f070021;

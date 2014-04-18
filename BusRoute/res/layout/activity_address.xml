@@ -42,9 +42,8 @@
         android:layout_below="@+id/addressField"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:text="Save Address"
-        
-        android:background="@drawable/yellow_button" />
+        android:background="@drawable/yellow_button"
+        android:text="@string/address_save_button" />
 
     <Button
         android:id="@+id/graphicalPlan"

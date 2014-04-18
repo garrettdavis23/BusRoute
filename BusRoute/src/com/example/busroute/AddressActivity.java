@@ -1,6 +1,7 @@
 package com.example.busroute;
 
 import android.os.Bundle;
+import android.os.Debug;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.ListActivity;
@@ -67,14 +68,17 @@ public class AddressActivity extends Activity implements OnClickListener  {
 		 if (view.getId() == R.id.saveAddressButton) 
 		 {
 			 //save the address to the database
-			Toast.makeText(getApplicationContext(),addressField.getText().toString(), Toast.LENGTH_SHORT).show();
+			 Debug.startMethodTracing();
+			 Toast.makeText(getApplicationContext(),addressField.getText().toString(), Toast.LENGTH_SHORT).show();
+			 Debug.stopMethodTracing();
 		 }
 		 else if (view.getId() == R.id.graphicalPlan) 
 		 {
 			 Intent myIntent = new Intent(view.getContext(), RoutePlannerActivity.class);
-			  startActivityForResult(myIntent, 0);	
+			 startActivityForResult(myIntent, 0);	
 		 }
 	}
+
 
 
 }
