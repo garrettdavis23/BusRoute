@@ -21,6 +21,9 @@ public class MainActivity extends Activity implements OnClickListener {
 		ActionBar actionBar = getActionBar();
 		actionBar.hide();
 		
+		//creates db
+		DBAdapter db = new DBAdapter(this);
+		
 		Log.d("Debug", "onCreate has been called!");
 		
 		View v = findViewById(R.id.routebutton);

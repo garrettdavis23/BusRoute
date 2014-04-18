@@ -46,6 +46,10 @@ public class AddressActivity extends Activity implements OnClickListener  {
 		""};
 	private EditText addressField;
 	
+	//not sure if we need this if we did it in main but dunno how to find it from context
+	DBAdapter db = new DBAdapter(this);
+
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -68,15 +72,31 @@ public class AddressActivity extends Activity implements OnClickListener  {
 		 if (view.getId() == R.id.saveAddressButton) 
 		 {
 			 //save the address to the database
+<<<<<<< HEAD
 			 Debug.startMethodTracing();
 			 Toast.makeText(getApplicationContext(),addressField.getText().toString(), Toast.LENGTH_SHORT).show();
 			 Debug.stopMethodTracing();
+=======
+			db.open();
+			db.insertRow(addressField.getText().toString());
+			Toast.makeText(getApplicationContext(),addressField.getText().toString(), Toast.LENGTH_SHORT).show();
+>>>>>>> FETCH_HEAD
 		 }
 		 else if (view.getId() == R.id.graphicalPlan) 
 		 {
 			 Intent myIntent = new Intent(view.getContext(), RoutePlannerActivity.class);
 			 startActivityForResult(myIntent, 0);	
 		 }
+	}
+	@Override
+	public void onPause() {
+		super.onPause();
+		db.close();
+	}
+	@Override
+	public void onDestroy() {
+		super.onDestroy();
+		db.close();
 	}
 
 
