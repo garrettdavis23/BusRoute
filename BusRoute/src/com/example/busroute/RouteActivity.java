@@ -1,29 +1,37 @@
 package com.example.busroute;
 
+import android.app.Activity;
+import android.app.ActionBar;
+import android.os.Bundle;
+
+import com.esri.android.map.GraphicsLayer;
 import com.esri.android.map.MapView;
 import com.esri.android.map.ags.ArcGISTiledMapServiceLayer;
-import android.os.Bundle;
-import android.app.ActionBar;
-import android.app.Activity;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.support.v4.app.NavUtils;
+import com.esri.core.tasks.geocode.Locator;
+
+
 
 public class RouteActivity extends Activity {
 
 	MapView mMapView;
+	ArcGISTiledMapServiceLayer basemap;
+	GraphicsLayer locationLayer;
+	Locator locator;
 
-	/** Called when the activity is first created. */
 	public void onCreate(Bundle savedInstanceState) {
+		
+		// Launch route activity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_route);
 		
+		// Make it full screen
 		ActionBar actionBar = getActionBar();
 		actionBar.hide();
 
-		// Retrieve the map and initial extent from XML layout
+		// Retrieve the map from XML layout
 		mMapView = (MapView)findViewById(R.id.map);
-		// Add dynamic layer to MapView
+		
+		// Add map layer on the screen
 		mMapView.addLayer(new ArcGISTiledMapServiceLayer("" +
 		"http://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer"));
 
@@ -38,5 +46,6 @@ public class RouteActivity extends Activity {
 		super.onResume();
 		mMapView.unpause();
 	}
+	
 
 }

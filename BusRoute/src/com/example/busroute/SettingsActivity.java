@@ -15,11 +15,16 @@ public class SettingsActivity extends Activity implements OnCheckedChangeListene
 		
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		
+		// Displays settings activity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_settings);
+		
+		// Makes it full screen
 		ActionBar actionBar = getActionBar();
 		actionBar.hide();
 		
+		// Sets up listeners for the 2 switches
 		 Switch darkThemeSwitch = (Switch) findViewById(R.id.switch1);
 		 if (darkThemeSwitch != null) {
 	            darkThemeSwitch.setOnCheckedChangeListener((android.widget.CompoundButton.OnCheckedChangeListener) this);    // note this
@@ -41,6 +46,8 @@ public class SettingsActivity extends Activity implements OnCheckedChangeListene
 	
 	@Override
 	public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+		
+		// Just displays a message when the setting is toggled
 	    Toast.makeText(this, "The switch is " + (isChecked ? "on" : "off"),
 	                   Toast.LENGTH_SHORT).show();
 	    if (isChecked) 

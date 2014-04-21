@@ -4,19 +4,12 @@ import android.os.Bundle;
 import android.os.Debug;
 import android.app.ActionBar;
 import android.app.Activity;
-import android.app.ListActivity;
 import android.content.Intent;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.EditText;
 import android.widget.Toast;
 import android.widget.Button;
-import android.widget.AdapterView.OnItemClickListener;
 
 public class AddressActivity extends Activity implements OnClickListener  {
 
@@ -44,6 +37,7 @@ public class AddressActivity extends Activity implements OnClickListener  {
 		"",
 		"",
 		""};
+	
 	private EditText addressField;
 	
 	//not sure if we need this if we did it in main but dunno how to find it from context
@@ -52,14 +46,19 @@ public class AddressActivity extends Activity implements OnClickListener  {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		
+		// Pulls us the address activity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_address);
 		
+		// Hides action bar to make it full screen
 		ActionBar actionBar = getActionBar();
 		actionBar.hide();
 		
+		// Gets text box id for address input
 		addressField = (EditText) findViewById(R.id.addressField);
 		
+		// Sets click listeners for the buttons
 		View saveButton = (Button) findViewById(R.id.saveAddressButton);
 		saveButton.setOnClickListener(this);
 		
@@ -71,19 +70,19 @@ public class AddressActivity extends Activity implements OnClickListener  {
 		
 		 if (view.getId() == R.id.saveAddressButton) 
 		 {
-			 //save the address to the database
-<<<<<<< HEAD
+			 // Profiler testing/ Displays user input
 			 Debug.startMethodTracing();
 			 Toast.makeText(getApplicationContext(),addressField.getText().toString(), Toast.LENGTH_SHORT).show();
 			 Debug.stopMethodTracing();
-=======
+			 
+			 // Puts input into the database
 			db.open();
 			db.insertRow(addressField.getText().toString());
-			Toast.makeText(getApplicationContext(),addressField.getText().toString(), Toast.LENGTH_SHORT).show();
->>>>>>> FETCH_HEAD
 		 }
 		 else if (view.getId() == R.id.graphicalPlan) 
 		 {
+			 // Starts up the old address input where the user had to tap and hold
+			 // create a point
 			 Intent myIntent = new Intent(view.getContext(), RoutePlannerActivity.class);
 			 startActivityForResult(myIntent, 0);	
 		 }

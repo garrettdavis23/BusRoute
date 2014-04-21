@@ -1,6 +1,3 @@
-// ------------------------------------ DBADapter.java ---------------------------------------------
-
-// TODO: Change the package to match your project.
 package com.example.busroute;
 
 import android.content.ContentValues;
@@ -10,28 +7,15 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-
-// TO USE:
-// Change the package (at top) to match your project.
-// Search for "TODO", and make the appropriate changes.
 public class DBAdapter {
 
-	/////////////////////////////////////////////////////////////////////
-	//	Constants & Data
-	/////////////////////////////////////////////////////////////////////
-	// For logging:
 	private static final String TAG = "DBAdapter";
 	
 	// DB Fields
 	public static final String KEY_ROWID = "_id";
 	public static final int COL_ROWID = 0;
-	/*
-	 * CHANGE 1:
-	 */
-	// TODO: Setup your fields here:
+
 	public static final String KEY_ADDRESS = "address";
-	
-	// TODO: Setup your field numbers here (0 = KEY_ROWID, 1=...)
 	public static final int COL_ADDRESS = 1;
 
 	
@@ -40,68 +24,39 @@ public class DBAdapter {
 	// DB info: it's name, and the table we are using (just one).
 	public static final String DATABASE_NAME = "MyDb";
 	public static final String DATABASE_TABLE = "mainTable";
-	// Track DB version if a new version of your app changes the format.
 	public static final int DATABASE_VERSION = 2;	
 	
 	private static final String DATABASE_CREATE_SQL = 
 			"create table " + DATABASE_TABLE 
 			+ " (" + KEY_ROWID + " integer primary key autoincrement, "
-			
-			/*
-			 * CHANGE 2:
-			 */
-			// TODO: Place your fields here!
-			// + KEY_{...} + " {type} not null"
-			//	- Key is the column name you created above.
-			//	- {type} is one of: text, integer, real, blob
-			//		(http://www.sqlite.org/datatype3.html)
-			//  - "not null" means it is a required field (must be given a value).
-			// NOTE: All must be comma separated (end of line!) Last one must have NO comma!!
 			+ KEY_ADDRESS + " string not null "
-			//+ KEY_STUDENTNUM + " integer not null, "
-			//+ KEY_FAVCOLOUR + " string not null"
-			
-			// Rest  of creation:
 			+ ");";
 	
-	// Context of application who uses us.
 	private final Context context;
 	
 	private DatabaseHelper myDBHelper;
 	private SQLiteDatabase db;
-
-	/////////////////////////////////////////////////////////////////////
-	//	Public methods:
-	/////////////////////////////////////////////////////////////////////
 	
 	public DBAdapter(Context ctx) {
 		this.context = ctx;
 		myDBHelper = new DatabaseHelper(context);
 	}
 	
-	// Open the database connection.
+	// Open the database
 	public DBAdapter open() {
 		db = myDBHelper.getWritableDatabase();
 		return this;
 	}
 	
-	// Close the database connection.
+	// Close the database
 	public void close() {
 		myDBHelper.close();
 	}
 	
-	// Add a new set of values to the database.
+	// Insert Row to database
 	public long insertRow(String address) {
-		/*
-		 * CHANGE 3:
-		 */		
-		// TODO: Update data in the row with new fields.
-		// TODO: Also change the function's arguments to be what you need!
-		// Create row's data:
 		ContentValues initialValues = new ContentValues();
 		initialValues.put(KEY_ADDRESS, address);
-		//initialValues.put(KEY_STUDENTNUM, studentNum);
-		//initialValues.put(KEY_FAVCOLOUR, favColour);
 		
 		// Insert it into the database.
 		return db.insert(DATABASE_TABLE, null, initialValues);
@@ -124,7 +79,7 @@ public class DBAdapter {
 		c.close();
 	}
 	
-	// Return all data in the database.
+	// Return all data from the database
 	public Cursor getAllRows() {
 		String where = null;
 		Cursor c = 	db.query(true, DATABASE_TABLE, ALL_KEYS, 
@@ -149,27 +104,12 @@ public class DBAdapter {
 	// Change an existing row to be equal to new data.
 	public boolean updateRow(long rowId, String address) {
 		String where = KEY_ROWID + "=" + rowId;
-
-		/*
-		 * CHANGE 4:
-		 */
-		// TODO: Update data in the row with new fields.
-		// TODO: Also change the function's arguments to be what you need!
-		// Create row's data:
 		ContentValues newValues = new ContentValues();
 		newValues.put(KEY_ADDRESS, address);
-		//newValues.put(KEY_STUDENTNUM, studentNum);
-		//newValues.put(KEY_FAVCOLOUR, favColour);
-		
-		// Insert it into the database.
+
 		return db.update(DATABASE_TABLE, newValues, where, null) != 0;
 	}
 	
-	
-	
-	/////////////////////////////////////////////////////////////////////
-	//	Private Helper Classes:
-	/////////////////////////////////////////////////////////////////////
 	
 	/**
 	 * Private class which handles database creation and upgrading.

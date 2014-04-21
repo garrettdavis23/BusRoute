@@ -9,8 +9,12 @@ public class HelpActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		
+		// Brings up instructions
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_help);
+		
+		// Makes it full screen
 		ActionBar actionBar = getActionBar();
 		actionBar.hide();
 	}

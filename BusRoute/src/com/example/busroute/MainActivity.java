@@ -8,24 +8,27 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Toast;
-import com.esri.android.geotrigger.GeotriggerService;
 
 public class MainActivity extends Activity implements OnClickListener {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		
+		// Launches main activity screen
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
+		// Makes it full screen
 		ActionBar actionBar = getActionBar();
 		actionBar.hide();
 		
-		//creates db
+		//creates database
 		DBAdapter db = new DBAdapter(this);
 		
+		// Old log from part 2
 		Log.d("Debug", "onCreate has been called!");
 		
+		// Sets up click listeners for the buttons
 		View v = findViewById(R.id.routebutton);
 	    v.setOnClickListener(this);
 	    
@@ -48,6 +51,8 @@ public class MainActivity extends Activity implements OnClickListener {
 	
 	public void onClick (View view) {
 		  
+		// Checks to see which button was pressed and loads
+		// the proper activity
 		  if (view.getId() == R.id.routebutton) 
 		  {
 			  Intent myIntent = new Intent(view.getContext(), RouteActivity.class);
@@ -69,6 +74,6 @@ public class MainActivity extends Activity implements OnClickListener {
 			  startActivityForResult(myIntent, 0);		
 		  }
 		  
-		} 
+	} 
 
 }
