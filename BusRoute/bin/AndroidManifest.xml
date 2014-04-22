@@ -29,7 +29,9 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name="com.example.busroute.MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -38,11 +40,14 @@
         </activity>
         <activity
             android:name="com.example.busroute.SettingsActivity"
-            android:label="@string/title_activity_settings" >
+            android:label="@string/title_activity_settings"
+            android:screenOrientation="portrait"
+            >
         </activity>
         <activity
             android:name="com.example.busroute.RouteActivity"
             android:label="@string/title_activity_route"
+            android:screenOrientation="landscape"
             android:parentActivityName="com.example.busroute.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -50,15 +55,19 @@
         </activity>
         <activity
             android:name="com.example.busroute.HelpActivity"
-            android:label="@string/title_activity_help" >
+            android:label="@string/title_activity_help"
+            android:screenOrientation="portrait"
+            >
         </activity>
         <activity
             android:name="com.example.busroute.RoutePlannerActivity"
-            android:label="@string/title_activity_route_planner" >
+            android:label="@string/title_activity_route_planner"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="com.example.busroute.AudioActivity"
             android:label="@string/title_activity_audio"
+            android:screenOrientation="portrait"
             android:parentActivityName="com.example.busroute.RoutePlannerActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -66,7 +75,8 @@
         </activity>
         <activity
             android:name="com.example.busroute.AddressActivity"
-            android:label="@string/title_activity_address" 
+            android:label="@string/title_activity_address"
+            android:screenOrientation="portrait" 
             android:windowSoftInputMode="adjustResize|stateHidden">
         </activity>
         <uses-library android:name="android.test.runner" />
