@@ -47,7 +47,6 @@
         <activity
             android:name="com.example.busroute.RouteActivity"
             android:label="@string/title_activity_route"
-            android:screenOrientation="landscape"
             android:parentActivityName="com.example.busroute.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
